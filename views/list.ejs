@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO_DO_LIST</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1><%= today_day %>
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <!-- <li>  <%= itemslist[itemslist.length-2] %></li> -->
+        <% for(var i=0; i< itemslist.length; i++){ %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="check" value="<%=itemslist[i]._id%>" onChange="this.form.submit()" >
+                    <p>
+                        <%= itemslist[i].itemName %>
+                    </p>
+                </div>
+            </form>
+            <% } %>
+
+                <form action="/" method="post" class="item">
+                    <input type="text" name="nameit" placeholder="Add New item" autocomplete="off">
+                    <button type="submit">+</button>
+                </form>
+    </div>                              
+
+</body>
+<footer>
+    <h4 style="color:white">Copyright 2021 SP </h4>
+</footer>
+</html>
