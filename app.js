@@ -17,7 +17,7 @@ const itemSchema = {
 const Item = mongoose.model("Item", itemSchema);
 
 const Item1 = new Item({
-    itemName: "Welcome to todolist"
+    itemName: "Welcome to To_do_list"
 });
 
 const Item2 = new Item({
@@ -25,7 +25,7 @@ const Item2 = new Item({
 });
 
 const Item3 = new Item({
-    itemName: "<--- Hit this to delete."
+    itemName: "Hit clickbox to delete."
 });
 
 
@@ -61,7 +61,6 @@ app.get("/", function (req, res) {
 
 app.post("/delete", function (req, res) {
     const deleteItem = req.body.check;
-    // console.log(deleteItem);
     Item.deleteOne({ _id: deleteItem }, function (err) {
         if (err) {
             console.log(err);
